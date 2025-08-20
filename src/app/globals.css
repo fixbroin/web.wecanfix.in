@@ -1,0 +1,102 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Default light mode colors, will be overridden by inline script */
+    --background: 210 20% 98%;
+    --foreground: 210 10% 23%;
+    --card: 210 20% 100%;
+    --card-foreground: 210 10% 23%;
+    --popover: 210 20% 100%;
+    --popover-foreground: 210 10% 23%;
+    --primary: 210 65% 50%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 210 20% 94%;
+    --secondary-foreground: 210 10% 23%;
+    --muted: 210 20% 90%;
+    --muted-foreground: 210 10% 45%;
+    --accent: 180 65% 50%;
+    --accent-foreground: 0 0% 100%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 210 20% 88%;
+    --input: 210 20% 92%;
+    --ring: 210 65% 50%;
+    --radius: 0.8rem;
+  }
+
+  .dark {
+    /* Default dark mode colors, will be overridden by inline script */
+    --background: 210 20% 10%;
+    --foreground: 210 20% 98%;
+    --card: 210 20% 12%;
+    --card-foreground: 210 20% 98%;
+    --popover: 210 20% 10%;
+    --popover-foreground: 210 20% 98%;
+    --primary: 210 65% 60%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 210 20% 18%;
+    --secondary-foreground: 210 20% 98%;
+    --muted: 210 20% 22%;
+    --muted-foreground: 210 20% 70%;
+    --accent: 180 65% 60%;
+    --accent-foreground: 0 0% 100%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 20% 98%;
+    --border: 210 20% 25%;
+    --input: 210 20% 25%;
+    --ring: 210 65% 60%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+  section {
+    @apply py-12 sm:py-16;
+  }
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-headline;
+  }
+}
+
+@layer utilities {
+  .animated-gradient {
+    background: linear-gradient(-45deg, hsl(var(--secondary)), hsl(var(--background)), hsl(var(--secondary)));
+    background-size: 400% 400%;
+    animation: gradient 15s ease infinite;
+  }
+  .marquee {
+    animation: marquee 60s linear infinite;
+  }
+  .marquee-container:hover .marquee {
+    animation-play-state: paused;
+  }
+}
+
+@keyframes gradient {
+	0% {
+		background-position: 0% 50%;
+	}
+	50% {
+		background-position: 100% 50%;
+	}
+	100% {
+		background-position: 0% 50%;
+	}
+}
+
+@keyframes marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
